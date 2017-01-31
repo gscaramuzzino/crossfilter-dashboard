@@ -1,0 +1,44 @@
+body {
+  padding-top: 70px;
+}
+
+.space-col {
+  margin-bottom: 40px;
+}
+
+.container {
+  width: 80%;
+}
+
+a {
+  cursor: pointer;
+}
+
+.overlay,
+.overlay-wrapper .overlay {
+  z-index: 50;
+  background: rgb(255, 255, 255);
+  border-radius: 3px;
+}
+
+.overlay>.fa,
+.overlay-wrapper .overlay>.fa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -15px;
+  margin-top: -15px;
+  color: #000;
+  font-size: 30px;
+}
+
+.overlay,
+.overlay-wrapper>.overlay,
+.loading-img,
+.overlay-wrapper>.loading-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

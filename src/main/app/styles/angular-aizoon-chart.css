@@ -1,0 +1,48 @@
+.ngAizoonChart .axis path,
+.ngAizoonChart .axis line {
+  fill: none;
+  stroke: rgb(221, 221, 221);
+  shape-rendering: crispEdges;
+}
+
+.ngAizoonChart .brush .extent {
+  stroke: #fff;
+  stroke-opacity: .6;
+  stroke-width: 2px;
+  fill-opacity: .1;
+  shape-rendering: crispEdges;
+}
+
+.ngAizoonChart .brush .resize path {
+  fill: #eee;
+  stroke: #666;
+}
+
+.ngAizoonChart div.aizoon-chart-tooltip {
+  position: absolute;
+  text-align: center;
+  font: 15px sans-serif;
+  color: white;
+  background: #333;
+  padding: 5px 8px 4px 8px;
+  text-align: left;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  z-index: 10;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.ngAizoonChart text {
+  font-size: 8pt;
+  fill: #848e96;
+}
+
+.ngAizoonChart .title {
+  color: #848e96;
+  font-size: 10.5pt;
+}
+
+.ngAizoonChart div.aizoon-chart-tooltip span.tipsyLabel {
+  font-weight: bold;
+}

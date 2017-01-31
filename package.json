@@ -1,0 +1,49 @@
+{
+  "name": "crossfilter-dashboard",
+  "private": true,
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "karma start src/test/apptestkarma.conf.js",
+    "ant": "cd build && ant copy",
+    "mvn-build": "mvn package",
+    "mvn-node-install": "mvn frontend:install-node-and-npm -DnodeVersion=v6.9.4 -DnpmVersion=3.10.10",
+    "npm-install": "cd /main/cache && npm install",
+    "start-tomcat": "cd build && ant tomcat-stop && ant deleteWar && ant copyWar && ant tomcat-start",
+    "restart-tomcat": "cd build && ant tomcat-stop && ant tomcat-start",
+    "deploy-app": "npm run gulp && npm run mvn-build && npm run start-tomcat && npm run watch-file",
+    "gulp": "cd /main/cache && gulp default --option /main/svi/scratch/crossfilter-dashboard/src/main/app --option /main/svi/scratch/crossfilter-dashboard/target/crossfilter-dashboard --option /main/svi/scratch/crossfilter-dashboard/bower_components",
+    "watch-file": "cd /main/cache && gulp watch-file --option /main/svi/scratch/crossfilter-dashboard/src/main/app --option /main/svi/scratch/crossfilter-dashboard/target/spa --option /main/svi/scratch/crossfilter-dashboard/bower_components",
+    "sync-tomcat": "cd /main/cache && gulp sync-tomcat --option /main/svi/scratch/crossfilter-dashboard/src/main/app --option /main/svi/scratch/crossfilter-dashboard/target/spa --option /main/svi/scratch/crossfilter-dashboard/bower_components"
+  },
+  "dependencies": {
+    "browser-sync": "2.18.2",
+    "del": "2.2.2",
+    "gulp": "3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-cache": "0.4.5",
+    "gulp-changed": "1.3.2",
+    "gulp-clean-css": "2.3.2",
+    "gulp-concat": "2.6.1",
+    "gulp-imagemin": "3.1.1",
+    "gulp-jshint": "2.0.4",
+    "gulp-ng-annotate": "2.0.0",
+    "gulp-rename": "1.2.2",
+    "gulp-rev": "7.1.2",
+    "gulp-sourcemaps": "2.4.0",
+    "gulp-uglify": "2.0.0",
+    "gulp-usemin": "0.3.26",
+    "jasmine-core": "2.5.2",
+    "jshint": "2.9.4",
+    "jshint-stylish": "2.2.1",
+    "karma": "1.3.0",
+    "karma-chrome-launcher": "2.0.0",
+    "karma-jasmine": "1.1.0",
+    "karma-junit-reporter": "1.2.0",
+    "karma-phantomjs-launcher": "1.0.2",
+    "karma-spec-reporter": "0.0.26",
+    "rimraf": "2.5.4",
+    "uuid": "3.0.1"
+  }
+}

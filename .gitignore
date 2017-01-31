@@ -1,0 +1,9 @@
+.classpath
+.project
+.settings
+target
+bower_components
+bower_component
+node_modules
+.vscode
+src/test/app/TESTS-*.xml
