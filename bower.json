@@ -1,0 +1,30 @@
+{
+  "name": "crossfilter-dashboard",
+  "description": "CrossfilterDashboard",
+  "main": "index.jsp",
+  "keywords": [
+    "hospital",
+    "patients",
+    "angular"
+  ],
+  "authors": [
+    "Giuseppe Scaramuzzino"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "font-awesome": "4.7.0",
+    "angular": "1.5.8",
+    "angular-route": "1.5.8",
+    "angular-mocks": "1.5.8",
+    "c3": "0.4.11",
+    "crossfilter": "1.3.12"
+  }
+}

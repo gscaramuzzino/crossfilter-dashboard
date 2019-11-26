@@ -1,0 +1,66 @@
+<project name="Web" default="copy" basedir=".">
+	<property file="build.properties" />
+
+	<!-- Copia template e risorse statiche dal progetto Eclipse all'istanza di Magnolia -->
+	<target name="copy" depends="copyPackage, copyGulp, copyBower, copyJshintrc">
+	</target>
+
+	<!-- 
+		Copia tutte le risorse di tipo jsp e ftl all'interno della Web Application Magnolia in 
+		Tomcat (bisogna configurare correttamente tomcat.home in build.properties) 
+	-->
+
+<target name="deleteWar">
+		<delete dir="${tomcat.home}/webapps/crossfilter-dashboard"/>
+		<delete file="${tomcat.home}/webapps/crossfilter-dashboard.war"/>
+	</target>
+	
+	<target name="copyWar">
+		<copy todir="${tomcat.home}/webapps/">
+			<fileset dir="${basedir}/../target/">
+				<include name="crossfilter-dashboard.war" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="copyPackage">
+		<copy file="${basedir}/../package.json" tofile="C://main/cache/package.json" />
+	</target>
+
+	<target name="copyGulp">
+		<copy file="${basedir}/../gulpfile.js" tofile="C://main/cache//gulpfile.js" />
+	</target>
+
+	<target name="copyBower">
+		<copy file="${basedir}/../bower.json" tofile="C://main/cache//bower.json" />
+	</target>
+
+	<target name="copyJshintrc">
+		<copy file="${basedir}/../.jshintrc" tofile="C://main/cache//.jshintrc" />
+	</target>
+	
+<target name="tomcat-start">
+   <exec executable="java" dir="${tomcat.home}">
+      <arg line="-cp bin\bootstrap.jar;bin\tomcat-juli.jar"/>
+      <arg value="org.apache.catalina.startup.Bootstrap"/>
+   </exec>
+</target>
+
+<target name="tomcat-debug">
+   <exec executable="java" dir="${tomcat.home}">
+      <arg line="-cp bin\bootstrap.jar;bin\tomcat-juli.jar"/>
+      <arg line="-Xdebug"/>
+      <arg line="-Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n"/>
+      <arg value="org.apache.catalina.startup.Bootstrap"/>
+   </exec>
+</target>
+
+<target name="tomcat-stop">
+   <exec executable="java" dir="${tomcat.home}">
+      <arg line="-cp bin\bootstrap.jar;bin\tomcat-juli.jar"/>
+      <arg value="org.apache.catalina.startup.Bootstrap"/>
+      <arg line="stop"/>
+   </exec>
+</target>
+
+</project>

@@ -1,0 +1,1 @@
+angular.module("AppModule", ['ngRoute','ui.bootstrap', 'ngAizoonChart']);
